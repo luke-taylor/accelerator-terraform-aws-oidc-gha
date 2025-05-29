@@ -1,0 +1,4 @@
+github_owner    = "<Insert GitHub Username>"
+github_token    = "<Insert GitHub Personal Access Token>"
+aws_access_key  = "<Insert AWS Access Key>"
+aws_secret_key  = "<Insert AWS Secret Key>"

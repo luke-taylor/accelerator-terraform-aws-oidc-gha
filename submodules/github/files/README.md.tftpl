@@ -1,0 +1,48 @@
+# ${repository_name}
+
+${repository_description}
+
+## Overview
+
+This repository manages AWS infrastructure using Terraform with GitHub Actions CI/CD.
+
+## Authentication
+
+This repository uses **OIDC (OpenID Connect)** for authentication with AWS - no long-lived credentials are stored.
+
+## Workflow
+
+| Trigger | Action |
+|---------|--------|
+| Pull Request | Plan only (posted as comment) |
+| Push to main | Plan and Apply |
+| Manual (workflow_dispatch) | Plan, Apply, or Destroy |
+
+## Structure
+
+```
+.
+├── .github/workflows/
+│   └── terraform.yml    # CI/CD workflow
+└── terraform/
+    ├── main.tf          # AWS resources
+    ├── terraform.tf     # Provider & backend config
+    └── outputs.tf       # Output values
+```
+
+## Usage
+
+### Making Changes
+
+1. Create a feature branch
+2. Make your Terraform changes in `terraform/`
+3. Open a Pull Request
+4. Review the plan in the PR comments
+5. Merge to apply changes
+
+### Manual Operations
+
+Use the **Actions** tab to manually trigger:
+- **plan** - Preview changes
+- **apply** - Apply changes
+- **destroy** - Destroy all resources (use with caution!)
